@@ -1,0 +1,75 @@
+/*****LES BASES*****/
+:root{
+    --couleurFond: #2c383d;
+    --couleurPolice: whitesmoke;
+    --couleurFondHeader: #44A33D;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--couleurFond);
+    color : var(--couleurPolice);
+    font-family: Helvetica, Arial,sans-serif;
+    text-align: justify;
+}
+
+div,header,input,footer{
+    display: flex;
+    flex:1;
+}
+
+img{
+    width: 100%;
+}
+
+.colonne{
+    flex-direction: column;
+}
+
+.alignCenter{
+    align-items: center;
+}
+
+.justCenter{
+    justify-content: center;
+}
+
+
+/***** Header et Footer ******/
+
+header, footer{
+    background-color: var(--couleurFondHeader);
+    color : var(--couleurPolice);
+}
+
+.titre{
+    flex:12;
+}
+
+/***** Contenu *****/
+
+.encadre{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.formConnexion{
+    flex:0.7;
+    background-color: var(--couleurFondHeader);
+    border: solid 1px var(--couleurFondHeader);
+    border-radius: 1 ;
+}
+
+.inputIdentifiant{
+    border:inset 0.2em var(--couleurFondHeader);
+    border-radius: 0.5em;
+    height: 2em;
+
+}
+
+.contenu{
+    padding-top: 5em;
+    padding-bottom: 10em;
+}
+
