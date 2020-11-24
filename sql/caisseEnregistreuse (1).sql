@@ -69,7 +69,7 @@ CREATE TABLE Caisses(
 # Table: ModePaiements
 #------------------------------------------------------------
 
-CREATE TABLE ModePaiements(
+CREATE TABLE ModesPaiements(
         idModePaiement   Int  Auto_increment PRIMARY KEY  NOT NULL ,
         typePaiement Varchar (50) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -88,11 +88,11 @@ CREATE TABLE Tickets(
 
 
 #------------------------------------------------------------
-# Table: lignesTicketss
+# Table: lignesTickets
 #------------------------------------------------------------
 
-CREATE TABLE lignesTicketss(
-        idlignesTickets Int  Auto_increment PRIMARY KEY NOT NULL ,
+CREATE TABLE lignesTickets(
+        idligneTicket Int  Auto_increment PRIMARY KEY NOT NULL ,
         quantite  Int NOT NULL ,
         prixHt  float NOT NULL ,
         montantTva  float NOT NULL ,
