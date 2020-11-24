@@ -9,10 +9,12 @@ include "../VIEW/head.php";
 
 /* Test Manager */
 
+
 // on teste la recherche par ID
 echo 'recherche id = 1' . '<br>';
 $p = ArticlesManager::findById(1);
 var_dump($p);
+
 
 // // on teste l'ajout
 // echo "ajout d'un produit" . '<br>';
