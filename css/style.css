@@ -116,6 +116,15 @@ header, footer{
 }
 
 
+.partie{
+	flex:0.5;
+	padding: 1em;
+}
+
+.alignInput{
+	align-items: flex-end;
+}
+
 /****** Boutons CRUD ******/
 
 /*Bouton ajouter*/

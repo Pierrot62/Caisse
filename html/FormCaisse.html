@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Formulaire caisses</title>
+    <title>Formulaire fond de caisse</title>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" media="screen and (max-width: 800px)" href="../CSS/phone.css" type="text/css" />
     <script src="script.js"></script>
@@ -15,7 +15,7 @@
             <img src="../Img/afpa.png" alt="Logo afpa">
         </div>
         <div class="titre alignCenter justCenter">
-            <h1>Formulaire caisses</h1>
+            <h1>Formulaire fond de caisse</h1>
         </div>
         <div class="colonne">
             <div class="espace"></div>
@@ -27,28 +27,111 @@
             <div class="esp"></div>
         </div>
     </header>
-    <div>
-        <div class="espace"></div>
-        <a href="ChoixListe.html">
-            <div class="accueil margingChoixListe justCenter alignCenter">ACCUEIL</div>
-        </a>
-        <div class="espace"></div>
+    <div class="titre justCenter alignCenter">
+        <h3>Fond de caisse en entrée/sortie :</h3>
     </div>
-    <form method="POST" action="confirmation.html">
     <div class="contenu">
-        <div class="espace"></div>
-    <div class="formulaireArticle colonne justCenter alignCenter formConnexion margingChoixListe">
-        <div class="justCenter alignCenter">
-            <h3>Numéro caisse :</h3>
-            <input type="text" class="inputIdentifiant" name="nomCaisse"/>
-        </div>
-        <div>
-            <input type="submit" class="submitConnexion" value="Valider"/>
+        <div class="colonne">
+            <form method="POST" action="index.php">
+                <div class="ligne">
+                    <div class="espace"></div>
+                    <div class="partie">
+                        Billets de 100 € :
+                        <div class="espace"></div>
+                        <input type="text" name="b100" />
+                    </div>
+                    <div class="partie">
+                        Pièce de 50 centimes :
+                        <div class="espace"></div>
+                        <input type="text" name="p50" />
+                    </div>
+                    <div class="espace"></div>
+                </div>
+                <div class="ligne">
+                    <div class="espace"></div>
+                    <div class="partie">
+                        Billets de 50 € :
+                        <div class="espace"></div>
+                        <input type="text" name="b50" />
+                    </div>
+                    <div class="partie">
+                        Pièce de 20 centimes :
+                        <div class="espace"></div>
+                        <input type="text" name="p20" />
+                    </div>
+                    <div class="espace"></div>
+                </div>
+                <div class="ligne">
+                    <div class="espace"></div>
+                    <div class="partie">
+                        Billets de 20 € :
+                        <div class="espace"></div>
+                        <input type="text" name="b20" />
+                    </div>
+                    <div class="partie">
+                        Pièce de 10 centimes :
+                        <div class="espace"></div>
+                        <input type="text" name="p10" />
+                    </div>
+                    <div class="espace"></div>
+                </div>
+                <div class="ligne">
+                    <div class="espace"></div>
+                    <div class="partie">
+                        Billets de 10 € :
+                        <div class="espace"></div>
+                        <input type="text" name="b10" />
+                    </div>
+                    <div class="partie">
+                        Pièce de 5 centimes :
+                        <div class="espace"></div>
+                        <input type="text" name="p5" />
+                    </div>
+                    <div class="espace"></div>
+                </div>
+                <div class="ligne">
+                    <div class="espace"></div>
+                    <div class="partie">
+                        Billets de 5 € :
+                        <div class="espace"></div>
+                        <input type="text" class="alignInput" name="52" />
+                    </div>
+                    <div class="partie">
+                        Pièce de 2 centimes :
+                        <div class="espace"></div>
+                        <input type="text" name="p2" />
+                    </div>
+                    <div class="espace"></div>
+                </div>
+                <div class="ligne">
+                    <div class="espace"></div>
+                    <div class="partie">
+                        Pièces de 2 € :
+                        <div class="espace"></div>
+                        <input type="text" name="b2" />
+                    </div>
+                    <div class="partie">
+                        Pièce de 1 centime :
+                        <div class="espace"></div>
+                        <input type="text" name="p1" />
+                    </div>
+                    <div class="espace"></div>
+                </div>
+                <div class="ligne">
+                    <div class="espace"></div>
+                    <div class="partie">
+                        Pièces de 1 € :
+                        <div class="espace"></div>
+                        <input type="text" name="b1" />
+                    </div>
+                    <div class="partie">
+                        <input type="submit" value="Valider" />
+                    </div>
+                    <div class="espace"></div>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="espace"></div>
-    </div>
-    </form>
     <footer>
         <a href="listeDev.html">
             <div class="listeDev alignCenter justCenter">
