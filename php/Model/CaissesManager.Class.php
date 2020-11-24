@@ -25,17 +25,17 @@ class CaissesManager
         $q->execute();
     }
 
-    public static function delete($id)
-    {
-        $db = DbConnect::getDb();
-        $db->exec("DELETE FROM caisses WHERE idCaisse = $id");
-    }
+    public static function delete(Caisses $obj)
+	{
+ 		$db=DbConnect::getDb();
+		$db->exec("DELETE FROM Caisses WHERE idCaisse=" .$obj->getIdCaisse());
+	}
 
-    public static function get($caisse)
+    public static function findByName($caisse)
     {
         $db = DbConnect::getDb(); // Instance de PDO.
         // Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-        $q = $db->prepare('SELECT nomCaisse FROM caisses WHERE nomCaisse = :nomCaisse');
+        $q = $db->prepare('SELECT * FROM caisses WHERE nomCaisse = :nomCaisse');
 
         // Assignation des valeurs .
         $q->bindValue(':nomCaisse', $caisse);
@@ -49,17 +49,20 @@ class CaissesManager
         }
     }
     public static function findById($id)
-    {
-        $db = DbConnect::getDb();
-        $id = (int) $id;
-        $q = $db->query("SELECT * FROM caisses WHERE idCaisse = $id");
-        $results = $q->fetch(PDO::FETCH_ASSOC);
-        if ($results != false) {
-            return new Caisses($results);
-        } else {
-            return false;
-        }
-    }
+	{
+        $db=DbConnect::getDb();
+		$id = (int) $id;
+		$q=$db->query("SELECT * FROM Caisses WHERE idCaisse =".$id);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Caisses($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
 
     public static function getList()
     {
