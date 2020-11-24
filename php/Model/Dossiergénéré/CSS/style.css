@@ -1,0 +1,15 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+

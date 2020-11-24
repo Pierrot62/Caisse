@@ -35,7 +35,7 @@ class ArticlesManager
     static public function findById($id) {
 		$db = DbConnect::getDb (); // Instance de PDO.
 		// Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM users WHERE idArticle = :idArticle' );
+		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM articles WHERE idArticle = :idArticle' );
 		
 		// Assignation des valeurs .
 		$q->bindValue ( ':idArticle', $id );
@@ -52,7 +52,7 @@ class ArticlesManager
     static public function getlib($libelle) {
 		$db = DbConnect::getDb (); // Instance de PDO.
 		// Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM users WHERE libelleArticle = :libelleArticle' );
+		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM articles WHERE libelleArticle = :libelleArticle' );
 		
 		// Assignation des valeurs .
 		$q->bindValue ( ':libelleArticle', $libelle );
@@ -69,7 +69,7 @@ class ArticlesManager
     static public function getcodeB($codeBarre) {
 		$db = DbConnect::getDb (); // Instance de PDO.
 		// Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM users WHERE codeBarre = :codeBarre' );
+		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM articles WHERE codeBarre = :codeBarre' );
 		
 		// Assignation des valeurs .
 		$q->bindValue ( ':codeBarre', $codeBarre );
@@ -86,7 +86,7 @@ class ArticlesManager
     static public function getCateg($idCategorie) {
 		$db = DbConnect::getDb (); // Instance de PDO.
 		// Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM users WHERE codeBarre = :codeBarre' );
+		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM articles WHERE codeBarre = :codeBarre' );
 		
 		// Assignation des valeurs .
 		$q->bindValue ( ':idCategorie', $idCategorie );

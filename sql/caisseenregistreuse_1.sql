@@ -227,8 +227,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`idUser`, `identifiant`, `motDePasse`, `role`) VALUES(2, 'user', 'user', 1);
-INSERT INTO `user` (`idUser`, `identifiant`, `motDePasse`, `role`) VALUES(3, 'admin', 'admin', 100);
+INSERT INTO `users` (`idUser`, `identifiant`, `motDePasse`, `role`) VALUES(2, 'user', 'user', 1);
+INSERT INTO `users` (`idUser`, `identifiant`, `motDePasse`, `role`) VALUES(3, 'admin', 'admin', 100);
 
 --
 -- Contraintes pour les tables déchargées
