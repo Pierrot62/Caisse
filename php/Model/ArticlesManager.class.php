@@ -4,7 +4,7 @@ class ArticlesManager
     public static function add(Articles $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("INSERT INTO article (libelleArticle, prixHt, codeBarre, idCategorie, idTva) VALUES (:libelleArticle, :prixHt, :codeBarre, :idCategorie, :idTva)");
+        $q = $db->prepare("INSERT INTO articles (libelleArticle, prixHt, codeBarre, idCategorie, idTva) VALUES (:libelleArticle, :prixHt, :codeBarre, :idCategorie, :idTva)");
         $q->bindValue(":libelleArticle", $obj->getLibelleArticle());
         $q->bindValue(":prixHt", $obj->getPrixHT());
 		$q->bindValue(":codeBarre", $obj->getCodeBarre());
@@ -16,7 +16,7 @@ class ArticlesManager
     public static function update(Articles $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("UPDATE article SET  libelleArticle=:libelleArticle, prixHT=:prixHT, codeBarre=:codeBarre, idCategorie=:idCategorie, idTVA=:idTVA WHERE idArticle=:idArticle");
+        $q = $db->prepare("UPDATE articles SET  libelleArticle=:libelleArticle, prixHT=:prixHT, codeBarre=:codeBarre, idCategorie=:idCategorie, idTVA=:idTVA WHERE idArticle=:idArticle");
         $q->bindValue(":idArticle", $obj->getIdArticle());
         $q->bindValue(":libelleArticle", $obj->getLibelleArticle());
         $q->bindValue(":prixHT", $obj->getPrixHT());
@@ -29,7 +29,7 @@ class ArticlesManager
     public static function delete($id)
     {
         $db = DbConnect::getDb();
-        $db->exec("DELETE FROM article WHERE idArticle= $id");
+        $db->exec("DELETE FROM articles WHERE idArticle= $id");
     }
 
     static public function getById($id) {
@@ -104,7 +104,7 @@ class ArticlesManager
     {
         $db = DbConnect::getDb();
         $article = [];
-        $q = $db->query("SELECT * FROM article");
+        $q = $db->query("SELECT * FROM articles");
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             if ($donnees != false)

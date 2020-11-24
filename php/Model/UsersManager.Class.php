@@ -8,7 +8,7 @@ class UsersManager
     {
         $db = DbConnect::getDb(); // Instance de PDO.
         // Préparation de la requête d'insertion.
-        $q = $db->prepare("INSERT INTO user (identifiant, motDePasse, Role) VALUES (:identifiant, :motDePasse, :role)");
+        $q = $db->prepare("INSERT INTO users (identifiant, motDePasse, Role) VALUES (:identifiant, :motDePasse, :role)");
 
         // Assignation des valeurs .
         $q->bindValue(':identifiant', $obj->getidentifiant());
@@ -23,7 +23,7 @@ class UsersManager
     public static function update(Users $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("UPDATE user SET identifiant= :identifiant, motDePasse= :motDePasse, role= :role WHERE idUser= :idUser");
+        $q = $db->prepare("UPDATE users SET identifiant= :identifiant, motDePasse= :motDePasse, role= :role WHERE idUser= :idUser");
         $q->bindValue(":idUser", $obj->getIdUser());
         $q->bindValue(":identifiant", $obj->getIdentifiant());
         $q->bindValue(":motDePasse", $obj->getMotDePasse());
@@ -34,14 +34,14 @@ class UsersManager
     public static function delete($id)
     {
         $db = DbConnect::getDb();
-        $db->exec("DELETE FROM user WHERE idUser= $id");
+        $db->exec("DELETE FROM users WHERE idUser= $id");
     }
 
     public static function get($identifiant)
     {
         $db = DbConnect::getDb(); // Instance de PDO.
         // Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-        $q = $db->prepare('SELECT identifiant, motDePasse, role FROM user WHERE identifiant = :identifiant');
+        $q = $db->prepare('SELECT identifiant, motDePasse, role FROM users WHERE identifiant = :identifiant');
 
         // Assignation des valeurs .
         $q->bindValue(':identifiant', $identifiant);
@@ -58,7 +58,7 @@ class UsersManager
     {
         $db = DbConnect::getDb();
         $id = (int) $id;
-        $q = $db->query("SELECT * FROM user WHERE idUser = $id");
+        $q = $db->query("SELECT * FROM users WHERE idUser = $id");
         $results = $q->fetch(PDO::FETCH_ASSOC);
         if ($results != false) {
             return new Users($results);
@@ -87,7 +87,7 @@ public static function getList()
 {
     $db = DbConnect::getDb();
     $user= [];
-    $q = $db->query("SELECT * FROM user");
+    $q = $db->query("SELECT * FROM users");
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
         if ($donnees != false) {
             $user[] = new Users($donnees);

@@ -4,7 +4,7 @@ class PaiementsManager
     public static function add(Paiements $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("INSERT INTO Paiement (idModePaiement,idTicket,prixTTC) VALUES (:idModePaiement,:idTicket,:prixTTC)");
+        $q = $db->prepare("INSERT INTO paiements (idModePaiement,idTicket,prixTTC) VALUES (:idModePaiement,:idTicket,:prixTTC)");
         $q->bindValue(":idModePaiement", $obj->getidModePaiement());
         $q->bindValue(":idTicket", $obj->getidTicket());
         $q->bindValue(":prixTTC", $obj->getprixTTC());
@@ -14,7 +14,7 @@ class PaiementsManager
     public static function update(Paiements $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("UPDATE paiement SET idModePaiement= :idModePaiement, idTicket= :idTicket, prixTTC= :prixTTC WHERE idPaiement = :idPaiement");
+        $q = $db->prepare("UPDATE paiements SET idModePaiement= :idModePaiement, idTicket= :idTicket, prixTTC= :prixTTC WHERE idPaiement = :idPaiement");
         $q->bindValue(":idPaiement", $obj->getidPaiement());
         $q->bindValue(":idModePaiement", $obj->getidModePaiement());
         $q->bindValue(":idTicket", $obj->getidTicket());
@@ -25,7 +25,7 @@ class PaiementsManager
     public static function delete($id)
     {
         $db = DbConnect::getDb();
-        $db->exec("DELETE FROM Paiement WHERE idPaiement = $id");
+        $db->exec("DELETE FROM paiements WHERE idPaiement = $id");
     }
 
 
@@ -33,7 +33,7 @@ class PaiementsManager
     {
         $db = DbConnect::getDb();
         $id = (int) $id;
-        $q = $db->query("SELECT * FROM Paiement WHERE idPaiement = $id");
+        $q = $db->query("SELECT * FROM paiements WHERE idPaiement = $id");
         $results = $q->fetch(PDO::FETCH_ASSOC);
         if ($results != false) {
             return new Paiements($results);
@@ -46,7 +46,7 @@ class PaiementsManager
     {
         $db = DbConnect::getDb();
         $client = [];
-        $q = $db->query("SELECT * FROM Paiement");
+        $q = $db->query("SELECT * FROM paiements");
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
             if ($donnees != false) {
                 $client[] = new Paiements($donnees);

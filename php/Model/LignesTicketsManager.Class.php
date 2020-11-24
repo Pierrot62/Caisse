@@ -4,7 +4,7 @@ class LignesTicketsManager
     public static function add(LignesTickets $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("INSERT INTO ligneTicket (quantite,prixHt,montantTVA,idTicket,idArticle) VALUES (:quantite,:prixHt,:montantTVA,:idTicket,:idArticle)");
+        $q = $db->prepare("INSERT INTO lignesTickets (quantite,prixHt,montantTVA,idTicket,idArticle) VALUES (:quantite,:prixHt,:montantTVA,:idTicket,:idArticle)");
         $q->bindValue(":quantite", $obj->getquantite());
         $q->bindValue(":prixHt", $obj->getprixHt());
         $q->bindValue(":montantTVA", $obj->getmontantTVA());
@@ -16,7 +16,7 @@ class LignesTicketsManager
     public static function update(LignesTickets $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("UPDATE ligneticket SET quantite= :quantite, prixHt= :prixHt, montantTVA= :montantTVA, idTicket= :idTicket, idArticle= :idArticle WHERE idLigneTicket = :idLigneTicket");
+        $q = $db->prepare("UPDATE lignestickets SET quantite= :quantite, prixHt= :prixHt, montantTVA= :montantTVA, idTicket= :idTicket, idArticle= :idArticle WHERE idLigneTicket = :idLigneTicket");
         $q->bindValue(":idLigneTicket", $obj->getidLigneticket());
         $q->bindValue(":quantite", $obj->getquantite());
         $q->bindValue(":prixHt", $obj->getprixHt());
@@ -29,7 +29,7 @@ class LignesTicketsManager
     public static function delete($id)
     {
         $db = DbConnect::getDb();
-        $db->exec("DELETE FROM ligneTicket WHERE idLigneTicket = $id");
+        $db->exec("DELETE FROM lignesTickets WHERE idLigneTicket = $id");
     }
 
 
@@ -37,7 +37,7 @@ class LignesTicketsManager
     {
         $db = DbConnect::getDb();
         $id = (int) $id;
-        $q = $db->query("SELECT * FROM LigneTicket WHERE idLigneTicket = $id");
+        $q = $db->query("SELECT * FROM LignesTickets WHERE idLigneTicket = $id");
         $results = $q->fetch(PDO::FETCH_ASSOC);
         if ($results != false) {
             return new LignesTickets($results);
@@ -50,7 +50,7 @@ class LignesTicketsManager
     {
         $db = DbConnect::getDb();
         $client = [];
-        $q = $db->query("SELECT * FROM LigneTicket");
+        $q = $db->query("SELECT * FROM LignesTickets");
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
             if ($donnees != false) {
                 $client[] = new LignesTickets($donnees);
@@ -62,7 +62,7 @@ class LignesTicketsManager
     public static function getByTicket($idTicket){
         $db = DbConnect::getDb();
         $idTicket = (int) $idTicket;
-        $q = $db->query("SELECT * FROM LigneTicket WHERE idTicket = $idTicket");
+        $q = $db->query("SELECT * FROM LignesTickets WHERE idTicket = $idTicket");
         $results = $q->fetch(PDO::FETCH_ASSOC);
         if ($results != false) {
             return new LignesTickets($results);
@@ -73,7 +73,7 @@ class LignesTicketsManager
 
     public static function getByDate($dateFin){
         $db = DbConnect::getDb();
-        $q = $db->query("SELECT * FROM Ticket WHERE date = $dateFin");
+        $q = $db->query("SELECT * FROM Tickets WHERE date = $dateFin");
         $results = $q->fetch(PDO::FETCH_ASSOC);
         if ($results != false) {
             return new Tickets($results);
