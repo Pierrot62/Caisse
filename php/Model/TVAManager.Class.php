@@ -24,7 +24,7 @@ class TVAManager
         $db = DbConnect::getDb();
         $db->exec("DELETE FROM tva WHERE idTva = $id");
     }
-    public static function getById($id)
+    public static function findById($id)
     {
         $db = DbConnect::getDb(); // Instance de PDO.
         // Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
