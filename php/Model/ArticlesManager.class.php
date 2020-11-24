@@ -32,7 +32,7 @@ class ArticlesManager
         $db->exec("DELETE FROM articles WHERE idArticle= $id");
     }
 
-    static public function getById($id) {
+    static public function findById($id) {
 		$db = DbConnect::getDb (); // Instance de PDO.
 		// Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
 		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM users WHERE idArticle = :idArticle' );
