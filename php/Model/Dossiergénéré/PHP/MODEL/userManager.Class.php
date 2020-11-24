@@ -4,7 +4,7 @@ class UserManager
 {
 	public static function add(User $obj)
 	{
- 		$db=DbConnect::getDb();
+		$db=DbConnect::getDb();
 		$q=$db->prepare("INSERT INTO User (identifiant,motDePasse,role) VALUES (:identifiant,:motDePasse,:role)");
 		$q->bindValue(":identifiant", $obj->getIdentifiant());
 		$q->bindValue(":motDePasse", $obj->getMotDePasse());
