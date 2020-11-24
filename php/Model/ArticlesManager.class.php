@@ -26,10 +26,11 @@ class ArticlesManager
         $q->execute();
     }
 
-    public static function delete($id)
+    public static function delete(Articles $obj)
     {
         $db = DbConnect::getDb();
-        $db->exec("DELETE FROM articles WHERE idArticle= $id");
+		$db->exec("DELETE FROM Articles WHERE idArticle=" .$obj->getIdArticle());
+
     }
 
     static public function findById($id) {

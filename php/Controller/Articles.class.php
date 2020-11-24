@@ -76,7 +76,7 @@ class Articles
     public function setIdTVA(int $_idTVA)
     {
         $this->_idTVA = $_idTVA;
-        $this->setTVA(TVAManager::getById($_idTVA));
+        $this->setTVA(TVAManager::findById($_idTVA));
 
     }
     public function getCategorie()
