@@ -19,11 +19,13 @@ class TVAManager
         $q->execute();
     }
 
-    public static function delete($id)
-    {
-        $db = DbConnect::getDb();
-        $db->exec("DELETE FROM tva WHERE idTva = $id");
-    }
+    public static function delete(TVA $obj)
+	{
+        $db=DbConnect::getDb();
+        $db->exec("DELETE FROM articles WHERE idTva=" .$obj->getIdTva());
+        $db->exec("DELETE FROM articles WHERE idTva=" .$obj->getIdTva());
+		$db->exec("DELETE FROM tva WHERE idTva=" .$obj->getIdTva());
+	}
     public static function findById($id)
     {
         $db = DbConnect::getDb(); // Instance de PDO.

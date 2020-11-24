@@ -31,17 +31,19 @@ class UsersManager
         $q->execute();
     }
 
-    public static function delete($id)
-    {
-        $db = DbConnect::getDb();
-        $db->exec("DELETE FROM users WHERE idUser= $id");
-    }
+    public static function delete(Users $obj)
+	{
+        $db=DbConnect::getDb();
+        $db->exec("DELETE FROM caisses WHERE idUser=" .$obj->getIdUser());
+		$db->exec("DELETE FROM users WHERE idUser=" .$obj->getIdUser());
+	}
 
-    public static function get($identifiant)
+    //
+    public static function findByName($identifiant)
     {
         $db = DbConnect::getDb(); // Instance de PDO.
         // Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-        $q = $db->prepare('SELECT identifiant, motDePasse, role FROM users WHERE identifiant = :identifiant');
+        $q = $db->prepare('SELECT * FROM users WHERE identifiant = :identifiant');
 
         // Assignation des valeurs .
         $q->bindValue(':identifiant', $identifiant);
@@ -54,6 +56,7 @@ class UsersManager
             return new Users($donnees);
         }
     }
+
     public static function findById($id)
     {
         $db = DbConnect::getDb();

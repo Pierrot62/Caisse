@@ -88,11 +88,11 @@ CREATE TABLE Tickets(
 
 
 #------------------------------------------------------------
-# Table: LigneTickets
+# Table: lignesTicketss
 #------------------------------------------------------------
 
-CREATE TABLE ligneTickets(
-        idLigneTicket Int  Auto_increment PRIMARY KEY NOT NULL ,
+CREATE TABLE lignesTicketss(
+        idlignesTickets Int  Auto_increment PRIMARY KEY NOT NULL ,
         quantite  Int NOT NULL ,
         prixHt  float NOT NULL ,
         montantTva  float NOT NULL ,
@@ -123,11 +123,11 @@ ALTER TABLE `articles`
 ALTER TABLE `caisses`
   ADD CONSTRAINT `fk_caisses_users` FOREIGN KEY (`idUser`) REFERENCES `Users` (`idUser`);
 
-ALTER TABLE `ligneTickets`
-  ADD CONSTRAINT `fk_ligneTickets_tickets` FOREIGN KEY (`idTicket`) REFERENCES `Tickets` (`idTicket`);
+ALTER TABLE `lignesTicketss`
+  ADD CONSTRAINT `fk_lignesTickets_tickets` FOREIGN KEY (`idTicket`) REFERENCES `Tickets` (`idTicket`);
 
-ALTER TABLE `ligneTickets`
-  ADD CONSTRAINT `fk_ligneTickets_articles` FOREIGN KEY (`idArticle`) REFERENCES `Articles` (`idArticle`);
+ALTER TABLE `lignesTicketss`
+  ADD CONSTRAINT `fk_lignesTickets_articles` FOREIGN KEY (`idArticle`) REFERENCES `Articles` (`idArticle`);
 
 ALTER TABLE `paiements`
   ADD CONSTRAINT `fk_paiements_ModePaiements` FOREIGN KEY (`idModePaiement`) REFERENCES `ModePaiements` (`idModePaiement`);
@@ -154,8 +154,8 @@ INSERT INTO `caisses` (`idCaisse`, `nomCaisse`, `totalCaisse`, `date`, `idUser`)
 
 INSERT INTO `tickets` (`idTicket`, `prixHT`, `date`, `montantTVA`) VALUES(1, 12.5, '2020-11-24', 1.25);
 
-INSERT INTO `lignetickets` (`idLigneTicket`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(1, 5, 10, 3, 1, 3);
-INSERT INTO `lignetickets` (`idLigneTicket`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(2, 2, 2.5, 2, 1, 4);
+INSERT INTO `lignesTicketss` (`idlignesTickets`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(1, 5, 10, 3, 1, 3);
+INSERT INTO `lignesTicketss` (`idlignesTickets`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(2, 2, 2.5, 2, 1, 4);
 
 INSERT INTO `modepaiements` (`idModePaiement`, `typePaiement`) VALUES(1, 'Carte bancaire');
 INSERT INTO `modepaiements` (`idModePaiement`, `typePaiement`) VALUES(2, 'Cheque');
