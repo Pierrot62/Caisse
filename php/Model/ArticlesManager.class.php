@@ -41,7 +41,7 @@ class ArticlesManager
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
-			return new Article($results);
+			return new Articles($results);
 		}
 		else
 		{
