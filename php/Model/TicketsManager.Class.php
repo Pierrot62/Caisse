@@ -6,7 +6,7 @@ class TicketsManager
         $db = DbConnect::getDb();
         $q = $db->prepare("INSERT INTO tickets (prixht,date,montantTVA) VALUES (:prixht,:date,:montantTVA)");
         $q->bindValue(":prixht", $obj->getprixHT());
-        $q->bindValue(":date", $obj->getdate()->format("j/m/y"));
+        $q->bindValue(":date", $obj->getdate()->format("y/m/j"));
         $q->bindValue(":montantTVA", $obj->getmontantTVA());
         $q->execute();
     }
