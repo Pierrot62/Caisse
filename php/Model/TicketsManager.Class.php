@@ -4,7 +4,7 @@ class TicketsManager
     public static function add(Tickets $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("INSERT INTO ticket (prixht,date,montantTVA) VALUES (:prixht,:date,:montantTVA)");
+        $q = $db->prepare("INSERT INTO tickets (prixht,date,montantTVA) VALUES (:prixht,:date,:montantTVA)");
         $q->bindValue(":prixht", $obj->getprixHT());
         $q->bindValue(":date", $obj->getdate()->format("j/m/y"));
         $q->bindValue(":montantTVA", $obj->getmontantTVA());
@@ -14,7 +14,7 @@ class TicketsManager
     public static function update(Tickets $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("UPDATE ticket SET prixht= :prixht, date= :date, montantTVA= :montantTVA WHERE idTicket = :idTicket");
+        $q = $db->prepare("UPDATE tickets SET prixht= :prixht, date= :date, montantTVA= :montantTVA WHERE idTicket = :idTicket");
         $q->bindValue(":idTicket", $obj->getidTicket());
         $q->bindValue(":prixht", $obj->getprixHT());
         $q->bindValue(":date", $obj->getdate());
@@ -25,7 +25,7 @@ class TicketsManager
     public static function delete($id)
     {
         $db = DbConnect::getDb();
-        $db->exec("DELETE FROM ticket WHERE idTicket = $id");
+        $db->exec("DELETE FROM tickets WHERE idTicket = $id");
     }
 
 
@@ -33,7 +33,7 @@ class TicketsManager
     {
         $db = DbConnect::getDb();
         $id = (int) $id;
-        $q = $db->query("SELECT * FROM ticket WHERE idTicket = $id");
+        $q = $db->query("SELECT * FROM tickets WHERE idTicket = $id");
         $results = $q->fetch(PDO::FETCH_ASSOC);
         if ($results != false) {
             return new Tickets($results);
@@ -46,7 +46,7 @@ class TicketsManager
     {
         $db = DbConnect::getDb();
         $ticket = [];
-        $q = $db->query("SELECT * FROM ticket");
+        $q = $db->query("SELECT * FROM tickets");
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
             if ($donnees != false) {
                 $ticket[] = new Tickets($donnees);

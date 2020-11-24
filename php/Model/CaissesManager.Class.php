@@ -4,8 +4,8 @@ class CaissesManager
     public static function add(Caisses $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("INSERT INTO caisse (numCaisse,totalCaisse,date,idUser) VALUES (:numCaisse,:totalCaisse,:date,:idUser)");
-        $q->bindValue(":numCaisse", $obj->getnomCaisse());
+        $q = $db->prepare("INSERT INTO caisses (nomCaisse,totalCaisse,date,idUser) VALUES (:nomCaisse,:totalCaisse,:date,:idUser)");
+        $q->bindValue(":nomCaisse", $obj->getnomCaisse());
         $q->bindValue(":totalCaisse", $obj->getTotalCaisse());
         $q->bindValue(":date", $obj->getDate());
         $q->bindValue(":idUser", $obj->getIdUser());
@@ -16,8 +16,8 @@ class CaissesManager
     public static function update(Caisses $obj)
     {
         $db = DbConnect::getDb();
-        $q = $db->prepare("UPDATE caisse SET numCaisse= :numCaisse, totalCaisse= :totalCaisse, date= :date, idUser= :idUser WHERE idCaisse = :idCaisse");
-        $q->bindValue(":numCaisse", $obj->getnomCaisse());
+        $q = $db->prepare("UPDATE caisses SET nomCaisse= :nomCaisse, totalCaisse= :totalCaisse, date= :date, idUser= :idUser WHERE idCaisse = :idCaisse");
+        $q->bindValue(":nomCaisse", $obj->getnomCaisse());
         $q->bindValue(":totalCaisse", $obj->getTotalCaisse());
         $q->bindValue(":date", $obj->getDate());
         $q->bindValue(":idUser", $obj->getIdUser());
@@ -28,17 +28,17 @@ class CaissesManager
     public static function delete($id)
     {
         $db = DbConnect::getDb();
-        $db->exec("DELETE FROM caisse WHERE idCaisse = $id");
+        $db->exec("DELETE FROM caisses WHERE idCaisse = $id");
     }
 
     public static function get($caisse)
     {
         $db = DbConnect::getDb(); // Instance de PDO.
         // Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-        $q = $db->prepare('SELECT numCaisse FROM caisse WHERE numCaisse = :numCaisse');
+        $q = $db->prepare('SELECT nomCaisse FROM caisses WHERE nomCaisse = :nomCaisse');
 
         // Assignation des valeurs .
-        $q->bindValue(':numCaisse', $caisse);
+        $q->bindValue(':nomCaisse', $caisse);
         $q->execute();
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         $q->CloseCursor();
@@ -52,7 +52,7 @@ class CaissesManager
     {
         $db = DbConnect::getDb();
         $id = (int) $id;
-        $q = $db->query("SELECT * FROM caisse WHERE idCaisse = $id");
+        $q = $db->query("SELECT * FROM caisses WHERE idCaisse = $id");
         $results = $q->fetch(PDO::FETCH_ASSOC);
         if ($results != false) {
             return new Caisses($results);
@@ -65,7 +65,7 @@ class CaissesManager
     {
         $db = DbConnect::getDb();
         $caisse = [];
-        $q = $db->query("SELECT * FROM caisse");
+        $q = $db->query("SELECT * FROM caisses");
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
             if ($donnees != false) {
                 $caisse[] = new Caisses($donnees);
