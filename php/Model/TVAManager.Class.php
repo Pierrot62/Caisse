@@ -22,7 +22,8 @@ class TVAManager
     public static function delete(TVA $obj)
 	{
         $db=DbConnect::getDb();
-        $db->exec("DELETE FROM articles WHERE idTva=" .$obj->getIdTva());
+        
+        $db->exec("DELETE FROM lignestickets WHERE idTva=" .$obj->getIdTva());
         $db->exec("DELETE FROM articles WHERE idTva=" .$obj->getIdTva());
 		$db->exec("DELETE FROM tva WHERE idTva=" .$obj->getIdTva());
 	}

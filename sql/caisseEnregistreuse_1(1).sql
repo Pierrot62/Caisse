@@ -69,7 +69,7 @@ CREATE TABLE Caisses(
 # Table: ModePaiements
 #------------------------------------------------------------
 
-CREATE TABLE ModePaiements(
+CREATE TABLE ModesPaiements(
         idModePaiement   Int  Auto_increment PRIMARY KEY  NOT NULL ,
         typePaiement Varchar (50) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -88,11 +88,11 @@ CREATE TABLE Tickets(
 
 
 #------------------------------------------------------------
-# Table: lignesTicketss
+# Table: lignesTickets
 #------------------------------------------------------------
 
-CREATE TABLE lignesTicketss(
-        idlignesTickets Int  Auto_increment PRIMARY KEY NOT NULL ,
+CREATE TABLE lignesTickets(
+        idligneTicket Int  Auto_increment PRIMARY KEY NOT NULL ,
         quantite  Int NOT NULL ,
         prixHt  float NOT NULL ,
         montantTva  float NOT NULL ,
@@ -123,17 +123,17 @@ ALTER TABLE `articles`
 ALTER TABLE `caisses`
   ADD CONSTRAINT `fk_caisses_users` FOREIGN KEY (`idUser`) REFERENCES `Users` (`idUser`);
 
-ALTER TABLE `lignesTicketss`
+ALTER TABLE `lignesTickets`
   ADD CONSTRAINT `fk_lignesTickets_tickets` FOREIGN KEY (`idTicket`) REFERENCES `Tickets` (`idTicket`);
 
-ALTER TABLE `lignesTicketss`
+ALTER TABLE `lignesTickets`
   ADD CONSTRAINT `fk_lignesTickets_articles` FOREIGN KEY (`idArticle`) REFERENCES `Articles` (`idArticle`);
 
 ALTER TABLE `paiements`
-  ADD CONSTRAINT `fk_paiements_ModePaiements` FOREIGN KEY (`idModePaiement`) REFERENCES `ModePaiements` (`idModePaiement`);
+  ADD CONSTRAINT `fk_paiements_ModesPaiements` FOREIGN KEY (`idModePaiement`) REFERENCES `ModesPaiements` (`idModePaiement`);
 
 ALTER TABLE `paiements`
-  ADD CONSTRAINT `fk_paiements_Ticket` FOREIGN KEY (`idTicket`) REFERENCES `Tickets` (`idTicket`);
+  ADD CONSTRAINT `fk_paiements_Tickets` FOREIGN KEY (`idTicket`) REFERENCES `Tickets` (`idTicket`);
 
 
 INSERT INTO `tva` (`idTva`, `tauxTva`) VALUES(1, 20);
@@ -154,16 +154,12 @@ INSERT INTO `caisses` (`idCaisse`, `nomCaisse`, `totalCaisse`, `date`, `idUser`)
 
 INSERT INTO `tickets` (`idTicket`, `prixHT`, `date`, `montantTVA`) VALUES(1, 12.5, '2020-11-24', 1.25);
 
-INSERT INTO `lignesTicketss` (`idlignesTickets`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(1, 5, 10, 3, 1, 3);
-INSERT INTO `lignesTicketss` (`idlignesTickets`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(2, 2, 2.5, 2, 1, 4);
+INSERT INTO `lignesTickets` (`idligneTicket`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(1, 5, 10, 3, 1, 3);
+INSERT INTO `lignesTickets` (`idligneTicket`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(2, 2, 2.5, 2, 1, 4);
 
-INSERT INTO `modepaiements` (`idModePaiement`, `typePaiement`) VALUES(1, 'Carte bancaire');
-INSERT INTO `modepaiements` (`idModePaiement`, `typePaiement`) VALUES(2, 'Cheque');
-INSERT INTO `modepaiements` (`idModePaiement`, `typePaiement`) VALUES(3, 'espece');
+INSERT INTO `modespaiements` (`idModePaiement`, `typePaiement`) VALUES(1, 'Carte bancaire');
+INSERT INTO `modespaiements` (`idModePaiement`, `typePaiement`) VALUES(2, 'Cheque');
+INSERT INTO `modespaiements` (`idModePaiement`, `typePaiement`) VALUES(3, 'espece');
 
 INSERT INTO `paiements` (`idPaiement`, `idModePaiement`, `idTicket`, `prixTTC`) VALUES(1, 1, 1, 10);
 INSERT INTO `paiements` (`idPaiement`, `idModePaiement`, `idTicket`, `prixTTC`) VALUES(2, 3, 1, 3.75);
-
-
-
-

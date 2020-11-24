@@ -18,11 +18,11 @@ class CategoriesManager
         $q->execute();
     }
 
-    public static function delete($id)
-    {
-        $db = DbConnect::getDb();
-        $db->exec("DELETE FROM categories WHERE idCategorie = $id");
-    }
+    public static function delete(Categories $obj)
+	{
+ 		$db=DbConnect::getDb();
+		$db->exec("DELETE FROM Categories WHERE idCategorie=" .$obj->getIdCategorie());
+	}
 
     public static function findById($id)
     {
@@ -52,11 +52,11 @@ class CategoriesManager
 
 
 
-    public static function findByLibellecategorie($libelleCategorie)
+    public static function findByLibelleCategorie($libelleCategorie)
     {
         $db = DbConnect::getDb();
-        $libelleCategorie = $libelleCategorie;
-        $q = $db->query("SELECT * FROM categories WHERE libelleCategorie = $libelleCategorie");
+        
+        $q = $db->query('SELECT * FROM categories WHERE libelleCategorie = "'.$libelleCategorie.'"');
         $results = $q->fetch(PDO::FETCH_ASSOC);
         if ($results != false) {
             return new Categories($results);

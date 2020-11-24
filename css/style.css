@@ -3,7 +3,6 @@
     --couleurFond: #2c383d;
     --couleurPolice: whitesmoke;
     --couleurFondHeader: #44A33D;
-    --couleurFondHeaderFonce: #69AE04;
 }
 
 body{
@@ -41,12 +40,6 @@ a{
     justify-content: center;
 }
 
-footer{
-    bottom: 0;
-    position: fixed;
-    width: 100vw;
-}
-
 /***** Header et Footer ******/
 
 header, footer{
@@ -59,15 +52,12 @@ header, footer{
 }
 
 .deconnexion{
-    background-color:var(--couleurFondHeaderFonce) ;
-    padding-left: 1.5em;
-    border: 0em solid var(--couleurFondHeaderFonce);
-    border-radius: 1em 0em 0em 1em;
+    
 }
 
 /***** Contenu *****/
 
-.encadreInput{
+.encadre{
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
@@ -86,8 +76,9 @@ header, footer{
     height: 2em;
 }
 
-.cadre{
+.contenu{
     padding-top: 10em;
+    padding-bottom: 25em;
 }
 
 .submitConnexion{

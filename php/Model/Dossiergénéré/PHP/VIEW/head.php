@@ -2,13 +2,13 @@
 
 function chargerClasse($classe)
 {
-	if (file_exists("PHP/CONTROLLER/" . $classe . ".Class.php"))
+	if (file_exists("../CONTROLLER/" . $classe . ".Class.php"))
 	{
-		require "PHP/CONTROLLER/" . $classe . ".Class.php";
+		require "../CONTROLLER/" . $classe . ".Class.php";
 	}
-	if (file_exists("PHP/MODEL/" . $classe . ".Class.php"))
+	if (file_exists("../MODEL/" . $classe . ".Class.php"))
 	{
-		require "PHP/MODEL/" . $classe . ".Class.php";
+		require "../MODEL/" . $classe . ".Class.php";
 	}
 }
 spl_autoload_register("chargerClasse");
