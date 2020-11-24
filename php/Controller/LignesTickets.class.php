@@ -68,7 +68,7 @@ class LignesTickets
     public function setidArticle(int $_idArticle)
     {
         $this->_idArticle = $_idArticle;
-        $this->setArticle(ArticlesManager::getById($_idArticle));
+        $this->setArticle(ArticlesManager::findById($_idArticle));
 
     }
     public function getTicket()
