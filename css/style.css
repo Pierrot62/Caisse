@@ -23,6 +23,11 @@ img{
     width: 100%;
 }
 
+a{
+    text-decoration: none;
+    color:var(--couleurPolice);
+}
+
 .colonne{
     flex-direction: column;
 }
@@ -35,7 +40,6 @@ img{
     justify-content: center;
 }
 
-
 /***** Header et Footer ******/
 
 header, footer{
@@ -45,6 +49,10 @@ header, footer{
 
 .titre{
     flex:12;
+}
+
+.deconnexion{
+    
 }
 
 /***** Contenu *****/
@@ -58,18 +66,24 @@ header, footer{
     flex:0.7;
     background-color: var(--couleurFondHeader);
     border: solid 1px var(--couleurFondHeader);
-    border-radius: 1 ;
+    border-radius: 1em 0em ;
+    padding: 0.5em 1em 0.5em 1em;
 }
 
 .inputIdentifiant{
     border:inset 0.2em var(--couleurFondHeader);
     border-radius: 0.5em;
     height: 2em;
-
 }
 
 .contenu{
-    padding-top: 5em;
-    padding-bottom: 10em;
+    padding-top: 10em;
+    padding-bottom: 25em;
 }
 
+.submitConnexion{
+    margin-left:12em;
+    margin-right:12em;
+    border-radius: 1em;
+    height: 2em;
+}
