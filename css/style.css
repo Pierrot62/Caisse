@@ -15,7 +15,7 @@ body{
     text-align: justify;
 }
 
-div,header,input,footer,a{
+div,header,input,footer,a,nav,ul,li{
     display: flex;
     flex:1;
 }
@@ -242,4 +242,49 @@ header, footer{
 .accueil:active {
 	position:relative;
 	top:1px;
+}
+
+/****Menu déroulant****/
+.menu{
+    display: flex;
+    justify-content: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+	align-items: left;
+	flex:0.1;
+}
+
+.avecEnfant{
+    position: relative;
+}
+
+.sousmenu{
+    justify-content: flex-start;
+    display: none;
+    position: absolute;
+    flex-flow: column wrap;
+    background-color: #2b6134;
+    border: rgb(0, 25, 63) 1px solid;
+    color:rgb(0, 0, 0);
+    margin-top: 1.5em;
+    width: 96%;
+}
+
+.avecEnfant:hover .sousmenu{
+    display: flex;
+}
+
+.bouton2:hover{
+    background-color: var(--couleurFond);
+}
+
+.bouton{
+	background-color: #2b6134;
+	border: rgb(0, 25, 63) 1px solid;
+	border-radius: 0.2em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	white-space: nowrap;
+	justify-content: flex-start;
+	align-content: center;
 }
