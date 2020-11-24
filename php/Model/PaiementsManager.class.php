@@ -22,11 +22,12 @@ class PaiementsManager
         $q->execute();
     }
 
-    public static function delete($id)
-    {
-        $db = DbConnect::getDb();
-        $db->exec("DELETE FROM paiements WHERE idPaiement = $id");
-    }
+    
+    public static function delete(Paiements $obj)
+	{
+         $db=DbConnect::getDb();
+		 $db->exec("DELETE FROM Paiements WHERE idPaiement=" .$obj->getIdPaiement());
+	}
 
 
     public static function findById($id)
