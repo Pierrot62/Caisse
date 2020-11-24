@@ -163,7 +163,3 @@ INSERT INTO `modespaiements` (`idModePaiement`, `typePaiement`) VALUES(3, 'espec
 
 INSERT INTO `paiements` (`idPaiement`, `idModePaiement`, `idTicket`, `prixTTC`) VALUES(1, 1, 1, 10);
 INSERT INTO `paiements` (`idPaiement`, `idModePaiement`, `idTicket`, `prixTTC`) VALUES(2, 3, 1, 3.75);
-
-
-
-
