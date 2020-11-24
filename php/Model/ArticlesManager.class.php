@@ -2,16 +2,16 @@
 class ArticlesManager
 {
     public static function add(Articles $obj)
-    {
-        $db = DbConnect::getDb();
-        $q = $db->prepare("INSERT INTO articles (libelleArticle, prixHt, codeBarre, idCategorie, idTva) VALUES (:libelleArticle, :prixHt, :codeBarre, :idCategorie, :idTva)");
-        $q->bindValue(":libelleArticle", $obj->getLibelleArticle());
-        $q->bindValue(":prixHt", $obj->getPrixHT());
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->prepare("INSERT INTO Articles (libelleArticle,prixHt,codeBarre,idTva,idCategorie) VALUES (:libelleArticle,:prixHt,:codeBarre,:idTva,:idCategorie)");
+		$q->bindValue(":libelleArticle", $obj->getLibelleArticle());
+		$q->bindValue(":prixHt", $obj->getPrixHt());
 		$q->bindValue(":codeBarre", $obj->getCodeBarre());
+		$q->bindValue(":idTva", $obj->getIdTva());
 		$q->bindValue(":idCategorie", $obj->getIdCategorie());
-		$q->bindValue(":idTva", $obj->getIdTVA());
-        $q->execute();
-    }
+		$q->execute();
+	}
 
     public static function update(Articles $obj)
     {
@@ -32,22 +32,21 @@ class ArticlesManager
         $db->exec("DELETE FROM articles WHERE idArticle= $id");
     }
 
-    static public function findById($id) {
-		$db = DbConnect::getDb (); // Instance de PDO.
-		// Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-		$q = $db->prepare ( 'SELECT idArticle, libelleArticle, prixHT, codeBarre, idCategorie, idTVA  FROM articles WHERE idArticle = :idArticle' );
-		
-		// Assignation des valeurs .
-		$q->bindValue ( ':idArticle', $id );
-		$q->execute ();
-		$donnees = $q->fetch ( PDO::FETCH_ASSOC );
-		$q->CloseCursor ();
-		if ($donnees == false) { // Si l'utilisateur n'existe pas, on renvoi un objet vide
-			return new Articles ();
-		} else {
-			return new Articles ( $donnees );
+    public static function findById($id)
+	{
+ 		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$q=$db->query("SELECT * FROM Articles WHERE idArticle =".$id);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Article($results);
 		}
-    }
+		else
+		{
+			return false;
+		}
+	}
 
     static public function getlib($libelle) {
 		$db = DbConnect::getDb (); // Instance de PDO.

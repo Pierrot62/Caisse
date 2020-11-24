@@ -130,10 +130,10 @@ ALTER TABLE `lignesTickets`
   ADD CONSTRAINT `fk_lignesTickets_articles` FOREIGN KEY (`idArticle`) REFERENCES `Articles` (`idArticle`);
 
 ALTER TABLE `paiements`
-  ADD CONSTRAINT `fk_paiements_ModePaiements` FOREIGN KEY (`idModePaiement`) REFERENCES `ModePaiements` (`idModePaiement`);
+  ADD CONSTRAINT `fk_paiements_ModesPaiements` FOREIGN KEY (`idModePaiement`) REFERENCES `ModesPaiements` (`idModePaiement`);
 
 ALTER TABLE `paiements`
-  ADD CONSTRAINT `fk_paiements_Ticket` FOREIGN KEY (`idTicket`) REFERENCES `Tickets` (`idTicket`);
+  ADD CONSTRAINT `fk_paiements_Tickets` FOREIGN KEY (`idTicket`) REFERENCES `Tickets` (`idTicket`);
 
 
 INSERT INTO `tva` (`idTva`, `tauxTva`) VALUES(1, 20);
@@ -157,9 +157,9 @@ INSERT INTO `tickets` (`idTicket`, `prixHT`, `date`, `montantTVA`) VALUES(1, 12.
 INSERT INTO `lignesTickets` (`idligneTicket`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(1, 5, 10, 3, 1, 3);
 INSERT INTO `lignesTickets` (`idligneTicket`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(2, 2, 2.5, 2, 1, 4);
 
-INSERT INTO `modepaiements` (`idModePaiement`, `typePaiement`) VALUES(1, 'Carte bancaire');
-INSERT INTO `modepaiements` (`idModePaiement`, `typePaiement`) VALUES(2, 'Cheque');
-INSERT INTO `modepaiements` (`idModePaiement`, `typePaiement`) VALUES(3, 'espece');
+INSERT INTO `modespaiements` (`idModePaiement`, `typePaiement`) VALUES(1, 'Carte bancaire');
+INSERT INTO `modespaiements` (`idModePaiement`, `typePaiement`) VALUES(2, 'Cheque');
+INSERT INTO `modespaiements` (`idModePaiement`, `typePaiement`) VALUES(3, 'espece');
 
 INSERT INTO `paiements` (`idPaiement`, `idModePaiement`, `idTicket`, `prixTTC`) VALUES(1, 1, 1, 10);
 INSERT INTO `paiements` (`idPaiement`, `idModePaiement`, `idTicket`, `prixTTC`) VALUES(2, 3, 1, 3.75);
