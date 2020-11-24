@@ -136,6 +136,15 @@ ALTER TABLE `paiements`
   ADD CONSTRAINT `fk_paiements_Ticket` FOREIGN KEY (`idTicket`) REFERENCES `Tickets` (`idTicket`);
 
 
+INSERT INTO `tva` (`idTva`, `tauxTva`) VALUES(1, 20);
+INSERT INTO `tva` (`idTva`, `tauxTva`) VALUES(2, 10);
+INSERT INTO `tva` (`idTva`, `tauxTva`) VALUES(3, 5.5);
+
+INSERT INTO `categories` (`idCategorie`, `libelleCategorie`) VALUES(1, 'papeterie');
+INSERT INTO `categories` (`idCategorie`, `libelleCategorie`) VALUES(2, 'alimentaire');
+
+INSERT INTO `users` (`idUser`, `identifiant`, `motDePasse`, `role`) VALUES(2, 'user', 'user', 1);
+INSERT INTO `users` (`idUser`, `identifiant`, `motDePasse`, `role`) VALUES(3, 'admin', 'admin', 100);
 
 INSERT INTO `articles` (`idArticle`, `libelleArticle`, `prixHt`, `codeBarre`, `idTva`, `idCategorie`) VALUES(3, 'Crayon', 25.45, '5447746843515', 1, 1);
 INSERT INTO `articles` (`idArticle`, `libelleArticle`, `prixHt`, `codeBarre`, `idTva`, `idCategorie`) VALUES(4, 'pate', 1.5, '548475484845', 2, 2);
@@ -143,8 +152,7 @@ INSERT INTO `articles` (`idArticle`, `libelleArticle`, `prixHt`, `codeBarre`, `i
 INSERT INTO `caisses` (`idCaisse`, `nomCaisse`, `totalCaisse`, `date`, `idUser`) VALUES(1, 'caisse1', 1500, '2020-11-24', 2);
 INSERT INTO `caisses` (`idCaisse`, `nomCaisse`, `totalCaisse`, `date`, `idUser`) VALUES(2, 'caisse2', 120, '2020-11-24', 3);
 
-INSERT INTO `categories` (`idCategorie`, `libelleCategorie`) VALUES(1, 'papeterie');
-INSERT INTO `categories` (`idCategorie`, `libelleCategorie`) VALUES(2, 'alimentaire');
+INSERT INTO `tickets` (`idTicket`, `prixHT`, `date`, `montantTVA`) VALUES(1, 12.5, '2020-11-24', 1.25);
 
 INSERT INTO `lignetickets` (`idLigneTicket`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(1, 5, 10, 3, 1, 3);
 INSERT INTO `lignetickets` (`idLigneTicket`, `quantite`, `prixHt`, `montantTva`, `idTicket`, `idArticle`) VALUES(2, 2, 2.5, 2, 1, 4);
@@ -156,13 +164,6 @@ INSERT INTO `modepaiements` (`idModePaiement`, `typePaiement`) VALUES(3, 'espece
 INSERT INTO `paiements` (`idPaiement`, `idModePaiement`, `idTicket`, `prixTTC`) VALUES(1, 1, 1, 10);
 INSERT INTO `paiements` (`idPaiement`, `idModePaiement`, `idTicket`, `prixTTC`) VALUES(2, 3, 1, 3.75);
 
-INSERT INTO `tickets` (`idTicket`, `prixHT`, `date`, `montantTVA`) VALUES(1, 12.5, '2020-11-24', 1.25);
 
-INSERT INTO `tva` (`idTva`, `tauxTva`) VALUES(1, 20);
-INSERT INTO `tva` (`idTva`, `tauxTva`) VALUES(2, 10);
-INSERT INTO `tva` (`idTva`, `tauxTva`) VALUES(3, 5.5);
-
-INSERT INTO `users` (`idUser`, `identifiant`, `motDePasse`, `role`) VALUES(2, 'user', 'user', 1);
-INSERT INTO `users` (`idUser`, `identifiant`, `motDePasse`, `role`) VALUES(3, 'admin', 'admin', 100);
 
 
