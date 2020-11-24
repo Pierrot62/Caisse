@@ -1,7 +1,6 @@
 <?php 
 
 
-
 // function chargerClasse($classe)
 // {
 //     if (file_exists("../Controller/" . $classe . ".class.php"))
@@ -22,9 +21,9 @@
 
 // echo"**********************************************";
 
-// // on teste la recherche par ID
+// on teste la recherche par ID
 // echo 'recherche id = 3' . '<br>';
-// $p = ArticlesManager::findById(3);
+// $p = ArticlesManager::findById(30);
 // var_dump($p);
 
 
@@ -55,10 +54,10 @@
 // $pRecharge = ArticlesManager::findById(7);
 
 // on teste la suppression
-echo "on supprime un article" . '<br>';
-$pSuppr = ArticlesManager::findById(28);
-var_dump($pSuppr);
-ArticlesManager::delete($pSuppr);
+// echo "on supprime un article" . '<br>';
+// $pSuppr = ArticlesManager::findById(4);
+// ArticlesManager::delete($pSuppr);
+
 
 // //on affiche la liste des produits
 // echo "liste des articles" . '<br>';

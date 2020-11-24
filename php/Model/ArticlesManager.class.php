@@ -29,6 +29,7 @@ class ArticlesManager
     public static function delete(Articles $obj)
     {
         $db = DbConnect::getDb();
+		$db->exec("DELETE FROM LignesTickets WHERE idArticle=" .$obj->getIdArticle());
 		$db->exec("DELETE FROM Articles WHERE idArticle=" .$obj->getIdArticle());
 
     }
