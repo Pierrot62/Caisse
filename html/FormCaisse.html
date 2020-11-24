@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Formulaire caisses</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 800px)" href="../CSS/phone.css" type="text/css" />
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Img/afpa.png" alt="Logo afpa">
+        </div>
+        <div class="titre alignCenter justCenter">
+            <h1>Formulaire caisses</h1>
+        </div>
+        <div class="colonne">
+            <div class="espace"></div>
+            <div class="deconnexion">
+                <a href="FormConnexion.html">
+                    <h3>Déconnexion</h3>
+                </a>
+            </div>
+            <div class="esp"></div>
+        </div>
+    </header>
+    <div>
+        <div class="espace"></div>
+        <a href="ChoixListe.html">
+            <div class="accueil margingChoixListe justCenter alignCenter">ACCUEIL</div>
+        </a>
+        <div class="espace"></div>
+    </div>
+    <form method="POST" action="confirmation.html">
+    <div class="contenu">
+        <div class="espace"></div>
+    <div class="formulaireArticle colonne justCenter alignCenter formConnexion margingChoixListe">
+        <div class="justCenter alignCenter">
+            <h3>Numéro caisse :</h3>
+            <input type="text" class="inputIdentifiant" name="nomCaisse"/>
+        </div>
+        <div>
+            <input type="submit" class="submitConnexion" value="Valider"/>
+        </div>
+    </div>
+    <div class="espace"></div>
+    </div>
+    </form>
+    <footer>
+        <a href="listeDev.html">
+            <div class="listeDev alignCenter justCenter">
+                <h3>Developpeurs</h3>
+            </div>
+        </a>
+        <div class="copyright alignCenter justCenter">
+            <h3>Afpa &copy; Copyright 2020</h3>
+        </div>
+    </footer>
