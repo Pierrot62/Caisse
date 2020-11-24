@@ -18,11 +18,12 @@ class ModesPaiementsManager
         $q->execute();
     }
 
-    public static function delete($id)
-    {
-        $db = DbConnect::getDb();
-        $db->exec("DELETE FROM modespaiements WHERE idModePaiement = $id");
-    }
+    
+    public static function delete(ModesPaiements $obj)
+	{
+ 		$db=DbConnect::getDb();
+		$db->exec("DELETE FROM ModesPaiements WHERE idModePaiement=" .$obj->getIdModePaiement());
+	}
 
     public static function findById($id)
     {

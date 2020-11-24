@@ -3,7 +3,6 @@
     --couleurFond: #2c383d;
     --couleurPolice: whitesmoke;
     --couleurFondHeader: #44A33D;
-    --couleurFondHeaderFonce: #69AE04;
 }
 
 body{
@@ -15,7 +14,7 @@ body{
     text-align: justify;
 }
 
-div,header,input,footer,a{
+div,header,input,footer{
     display: flex;
     flex:1;
 }
@@ -41,12 +40,6 @@ a{
     justify-content: center;
 }
 
-footer{
-    bottom: 0;
-    position: fixed;
-    width: 100vw;
-}
-
 /***** Header et Footer ******/
 
 header, footer{
@@ -59,15 +52,12 @@ header, footer{
 }
 
 .deconnexion{
-    background-color:var(--couleurFondHeaderFonce) ;
-    padding-left: 1.5em;
-    border: 0em solid var(--couleurFondHeaderFonce);
-    border-radius: 1em 0em 0em 1em;
+    
 }
 
 /***** Contenu *****/
 
-.encadreInput{
+.encadre{
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
@@ -86,8 +76,9 @@ header, footer{
     height: 2em;
 }
 
-.cadre{
+.contenu{
     padding-top: 10em;
+    padding-bottom: 25em;
 }
 
 .submitConnexion{
@@ -95,151 +86,4 @@ header, footer{
     margin-right:12em;
     border-radius: 1em;
     height: 2em;
-}
-
-.choix{
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    background-color: var(--couleurPolice);
-    padding-bottom: 1.5em;
-    padding-top:1.5em;
-    color:var(--couleurFond);
-    border: 0.5em var(--couleurFondHeader) solid;
-}
-
-.margingChoixListe{
-    margin-top: 7em;
-}
-
-.confirmation{
-    margin-bottom: 1em;
-}
-
-
-.partie{
-	flex:0.5;
-	padding: 1em;
-}
-
-.alignInput{
-	align-items: flex-end;
-}
-
-/****** Boutons CRUD ******/
-
-/*Bouton ajouter*/
-.ajouter {
-	box-shadow: 3px 4px 0px 0px #2e9614;
-	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
-	background-color:#44c767;
-	border-radius:18px;
-	border:1px solid #18ab29;
-	cursor:pointer;
-	padding:7px 25px;
-    text-shadow:0px 1px 0px #2f6627;
-    flex : 0.5;
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
-.ajouter:hover {
-	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-	background-color:#5cbf2a;
-}
-.ajouter:active {
-	position:relative;
-	top:1px;
-}
-
-
-/*Bouton modifier*/
-.modifier {
-	box-shadow: 3px 4px 0px 0px #1564ad;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-	background-color:#79bbff;
-	border-radius:18px;
-	border:1px solid #337bc4;
-	cursor:pointer;
-	padding:7px 25px;
-	text-shadow:0px 1px 0px #528ecc;
-}
-.modifier:hover {
-	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
-	background-color:#378de5;
-}
-.modifier:active {
-	position:relative;
-	top:1px;
-}
-
-
-/*Bouton supprimer*/
-
-.supprimer {
-	box-shadow: 3px 4px 0px 0px #8a2a21;
-	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-	background-color:#c62d1f;
-	border-radius:18px;
-	border:1px solid #d02718;
-	cursor:pointer;
-	padding:7px 25px;
-	text-shadow:0px 1px 0px #810e05;
-}
-.supprimer:hover {
-	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-	background-color:#f24437;
-}
-.supprimer:active {
-	position:relative;
-	top:1px;
-}
-
-/*Bouton détails*/
-.details {
-	box-shadow: 3px 4px 0px 0px #d4861f;
-	background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
-	background-color:#ffc477;
-	border-radius:18px;
-	border:1px solid #fb9e25;
-	cursor:pointer;
-	padding:7px 25px;
-	text-shadow:0px 1px 0px #cc9f52;
-}
-.details:hover {
-	background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-	background-color:#fb9e25;
-}
-.details:active {
-	position:relative;
-	top:1px;
-}
-
-/* Panneau libelle*/
-.libelle {
-	box-shadow: 3px 4px 0px 0px #6c7c7c;
-	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-	background-color:#768d87;
-	border-radius:18px;
-	border:1px solid #566963;
-	padding:7px 25px;
-	text-shadow:0px 1px 0px #2b665e;
-}
-
-/* Bouton accueil*/
-.accueil {
-	box-shadow: 3px 4px 0px 0px #91b8b3;
-	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-	background-color:#768d87;
-	border-radius:18px;
-	border:1px solid #566963;
-	cursor:pointer;
-	padding:7px 25px;
-	text-shadow:0px 1px 0px #2b665e;
-}
-.accueil:hover {
-	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
-	background-color:#6c7c7c;
-}
-.accueil:active {
-	position:relative;
-	top:1px;
 }
