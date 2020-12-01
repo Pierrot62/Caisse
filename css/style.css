@@ -51,6 +51,15 @@ header, footer{
     flex:12;
 }
 
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
 .deconnexion{
     
 }
@@ -76,10 +85,10 @@ header, footer{
     height: 2em;
 }
 
-.contenu{
+/* .contenu{
     padding-top: 10em;
     padding-bottom: 25em;
-}
+} */
 
 .submitConnexion{
     margin-left:12em;
