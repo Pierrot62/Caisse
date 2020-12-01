@@ -37,7 +37,7 @@ if (isset($_GET['action']) || isset($_GET['m']) || isset($_GET['id'])) {
                 break;
         }
         case 'test': {
-            afficherPage('Php/Model/', 'TestManagerPierre', "TestManager");
+            afficherPage('Php/Model/', 'TestManagerTickets', "TestManager");
             break;
     }
        
